@@ -80,20 +80,19 @@ async function sendEmailRequest(ctx: Context) {
 
   ctx.response.type = "application/json; charset=utf-8";
   
-  
-  // try {
-  //   console.log("Sending email...");
-  //   await sendSmtpEmail({
-  //     from: body.from,
-  //     to: body.to,
-  //     subject: body.subject,
-  //     content: "yada yada yada...",
-  //     html: body.body,
-  //   });
-  // } catch(err) {
-  //   console.error(err);
-  //   return ctx.response.body = { success: false, error: err.message };
-  // }
+  try {
+    console.log("Sending email...");
+    await sendSmtpEmail({
+      from: body.from,
+      to: body.to,
+      subject: body.subject,
+      content: "yada yada yada...",
+      html: body.body,
+    });
+  } catch(err) {
+    console.error(err);
+    return ctx.response.body = { success: false, error: err.message };
+  }
 
   return ctx.response.body = { success: true };
 }
@@ -103,6 +102,16 @@ router
   .get("/", (ctx: Context) => {
     ctx.response.type = "application/json; charset=utf-8";
     return ctx.response.body = {};
+  })
+  .get("/shield-deno", (ctx: Context) => {
+    ctx.response.type = "application/json; charset=utf-8";
+    return ctx.response.body = {
+      schemaVersion: 1,
+      label: "Deno",
+      message: "v1.13.2",
+      color: "orange",
+      namedLogo: "deno"
+    };
   })
   .post("/send-email", sendEmailRequest);
 

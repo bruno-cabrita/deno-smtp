@@ -1,5 +1,6 @@
 # Deno SMTP
 
+![Deno](https://img.shields.io/endpoint?url=https%3A%2F%2Fcabrita-smtp.deno.dev%2Fshield-deno "Deno v1.13.2")
 ## Docs
 * [Deno](https://deno.land/)
 * [Deno Deploy](https://deno.com/deploy/docs)
