@@ -96,14 +96,19 @@ async function sendEmailRequest(ctx: Context) {
 
     console.error(err);
     return ctx.response.body = { success: false, error: err.message };
-    
+
   }
 
   return ctx.response.body = { success: true };
 }
 
 const router = new Router();
-router.post("/send-email", sendEmailRequest);
+router
+  .get("/", (ctx: Context) => {
+    ctx.response.type = "application/json; charset=utf-8";
+    return ctx.response.body = { author: "Bruno Cabrita", url: "https://cabrita.link" };
+  })
+  .post("/send-email", sendEmailRequest);
 
 const app = new Application();
 
