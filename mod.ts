@@ -80,24 +80,20 @@ async function sendEmailRequest(ctx: Context) {
 
   ctx.response.type = "application/json; charset=utf-8";
   
-  console.log("Sending email...");
-
-  try {
-
-    await sendSmtpEmail({
-      from: body.from,
-      to: body.to,
-      subject: body.subject,
-      content: "yada yada yada...",
-      html: body.body,
-    });
-
-  } catch(err) {
-
-    console.error(err);
-    return ctx.response.body = { success: false, error: err.message };
-
-  }
+  
+  // try {
+  //   console.log("Sending email...");
+  //   await sendSmtpEmail({
+  //     from: body.from,
+  //     to: body.to,
+  //     subject: body.subject,
+  //     content: "yada yada yada...",
+  //     html: body.body,
+  //   });
+  // } catch(err) {
+  //   console.error(err);
+  //   return ctx.response.body = { success: false, error: err.message };
+  // }
 
   return ctx.response.body = { success: true };
 }
@@ -106,7 +102,7 @@ const router = new Router();
 router
   .get("/", (ctx: Context) => {
     ctx.response.type = "application/json; charset=utf-8";
-    return ctx.response.body = { author: "Bruno Cabrita", url: "https://cabrita.link" };
+    return ctx.response.body = {};
   })
   .post("/send-email", sendEmailRequest);
 

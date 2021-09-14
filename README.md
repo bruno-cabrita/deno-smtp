@@ -3,7 +3,7 @@
 ## Docs
 * [Deno](https://deno.land/)
 * [Deno Deploy](https://deno.com/deploy/docs)
-* [oak] (https://deno.land/x/oak@v9.0.0)
+* [oak](https://deno.land/x/oak@v9.0.0)
 * [smpt](https://deno.land/x/smtp@v0.7.0)
 
 ```
